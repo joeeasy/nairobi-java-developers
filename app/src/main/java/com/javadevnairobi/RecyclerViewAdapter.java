@@ -54,12 +54,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: ");
-                Toast.makeText(mContext, mimageNames.get(position), Toast.LENGTH_SHORT).show();
-               /* Log.d(TAG, "onClick() returned: " + mimageNames.get(position));
+                Log.d(TAG, "onClick() returned: " + v);
+
+//                Toast.makeText(mContext, mimageNames.get(position), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick() returned: " + mimageNames.get(position));
                 String message = mimageNames.get(position);
                 Intent intent = new Intent(mContext, ViewProfile.class);
                 intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);*/
+                startActivity(mContext, intent, null);
             }
         });
     }
