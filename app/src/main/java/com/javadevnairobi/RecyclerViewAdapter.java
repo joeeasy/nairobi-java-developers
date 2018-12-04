@@ -1,23 +1,29 @@
 package com.javadevnairobi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+    public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
     private static final String TAG = "RecyclerViewAdapter";
     private  ArrayList<String> mimageNames = new ArrayList<>();
     private  ArrayList<String> mimages = new ArrayList<>();
@@ -49,6 +55,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Log.d(TAG, "onClick: ");
                 Toast.makeText(mContext, mimageNames.get(position), Toast.LENGTH_SHORT).show();
+               /* Log.d(TAG, "onClick() returned: " + mimageNames.get(position));
+                String message = mimageNames.get(position);
+                Intent intent = new Intent(mContext, ViewProfile.class);
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);*/
             }
         });
     }

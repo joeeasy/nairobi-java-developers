@@ -3,7 +3,7 @@ package com.javadevnairobi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class view_profile extends AppCompatActivity {
+public class ViewProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
