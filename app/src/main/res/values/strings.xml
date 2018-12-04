@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">java-dev-nairobi</string>
+    <string name="app_name">Converge Codelab</string>
+    <string name="my_text_view">Java developers in nairobi</string>
 </resources>
