@@ -1,7 +1,9 @@
-package com.javadevnairobi;
+package com.javadevnairobi.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.javadevnairobi.R;
 
 public class ViewProfile extends AppCompatActivity {
 
