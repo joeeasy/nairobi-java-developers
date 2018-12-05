@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         imageUrls.add("https://picsum.photos/200/300/?random");
         imageUrls.add("https://picsum.photos/200/300/?random");
         imageUrls.add("https://picsum.photos/200/300/?random");
-        usernames.add("joeeasy");
-        usernames.add("johngorithm");
-        usernames.add("sam");
-        usernames.add("danieladek");
-        usernames.add("ascii-dev");
+        usernames.add("Jehonadab Okpukoro");
+        usernames.add("john Obi");
+        usernames.add("Samuel Afolaromni");
+        usernames.add("Daniel Adekunle");
+        usernames.add("Ismail Ibrahim");
         initRecyclerView();
     }
     private void initRecyclerView() {

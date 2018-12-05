@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .asBitmap()
                 .load(mimages.get(position))
                 .into(holder.image);
-        holder.username.setText(mimageNames.get(position));
+        holder.name.setText(mimageNames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,13 +74,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView image;
-        TextView username;
+        ImageView image;
+        TextView name;
         RelativeLayout parentLayout;
         public ViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.profile_image);
-            username = itemView.findViewById(R.id.username);
+            name = itemView.findViewById(R.id.name);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             android.util.Log.d(TAG, "ViewHolder() returned: " +  image);
         }
