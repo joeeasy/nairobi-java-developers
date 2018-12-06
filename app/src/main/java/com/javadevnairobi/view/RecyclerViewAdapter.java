@@ -40,7 +40,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        Log.d(TAG, "onBindViewHolder: ");
         Glide.with(mContext)
                 .asBitmap()
                 .load(mimages.get(position))
@@ -49,11 +48,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: ");
-                Log.d(TAG, "onClick() returned: " + v);
-
-//                Toast.makeText(mContext, mimageNames.get(position), Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "onClick() returned: " + mimageNames.get(position));
                 String message = mimageNames.get(position);
                 Intent intent = new Intent(mContext, ViewProfile.class);
                 intent.putExtra(EXTRA_MESSAGE, message);
@@ -77,7 +71,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             image = itemView.findViewById(R.id.profile_image);
             name = itemView.findViewById(R.id.name);
             parentLayout = itemView.findViewById(R.id.parent_layout);
-            android.util.Log.d(TAG, "ViewHolder() returned: " +  image);
         }
     }
 }

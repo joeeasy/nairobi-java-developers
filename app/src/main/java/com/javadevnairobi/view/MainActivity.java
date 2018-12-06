@@ -7,10 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.javadevnairobi.R;
+import com.javadevnairobi.model.GithubUsers;
+import com.javadevnairobi.presenter.GithubUserPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GithubUserView {
 
     public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
     private static final String TAG = "MainActivity";
@@ -22,29 +25,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: started");
-        initImageBitmaps();
-    }
+        GithubUserPresenter githubUserPresenter = new GithubUserPresenter(this);
+        githubUserPresenter.getUsers();
 
-    private void initImageBitmaps() {
-        Log.d(TAG, "initImageBitmaps: preparing bitmaps");
-        imageUrls.add("https://picsum.photos/200/300/?random");
-        imageUrls.add("https://picsum.photos/200/300/?random");
-        imageUrls.add("https://picsum.photos/200/300/?random");
-        imageUrls.add("https://picsum.photos/200/300/?random");
-        imageUrls.add("https://picsum.photos/200/300/?random");
-        usernames.add("Jehonadab Okpukoro");
-        usernames.add("john Obi");
-        usernames.add("Samuel Afolaromni");
-        usernames.add("Daniel Adekunle");
-        usernames.add("Ismail Ibrahim");
+    }
+    @Override
+    public void githubUserReady(List<GithubUsers> githubUsers) {
+        for (GithubUsers githubUser: githubUsers) {
+            imageUrls.add(githubUser.getImageUrl());
+            usernames.add(githubUser.getLogin());
+        }
         initRecyclerView();
     }
+
     private void initRecyclerView() {
-        Log.d(TAG, "initRecyclerView: started");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        Log.d(TAG, "initRecyclerView() returned: " + recyclerView);
-//        Log.d(TAG, "initRecyclerView() returned: " + getIntent());
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(usernames, imageUrls, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

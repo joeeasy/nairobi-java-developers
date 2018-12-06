@@ -2,8 +2,9 @@ package com.javadevnairobi.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GithubUsers {
+import java.util.ArrayList;
 
+public class GithubUsers {
     @SerializedName("name")
     private String name;
 
@@ -13,10 +14,14 @@ public class GithubUsers {
     @SerializedName("bio")
     private String bio;
 
-    public GithubUsers(String name, String login, String bio) {
+    @SerializedName("avatar_url")
+    private String imageUrl;
+
+    public GithubUsers(String name, String login, String bio, String imageUrl) {
         this.name = name;
         this.login = login;
         this.bio = bio;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -29,5 +34,9 @@ public class GithubUsers {
 
     public String getBio() {
         return bio;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
