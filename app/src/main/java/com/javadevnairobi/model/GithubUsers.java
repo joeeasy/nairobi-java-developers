@@ -13,6 +13,12 @@ public class GithubUsers {
     @SerializedName("bio")
     private String bio;
 
+    public GithubUsers(String name, String login, String bio) {
+        this.name = name;
+        this.login = login;
+        this.bio = bio;
+    }
+
     public String getName() {
         return name;
     }
