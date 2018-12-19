@@ -5,15 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ViewProfile">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="279dp"
-        android:layout_height="121dp"
-        android:text="Detail activity"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="104dp" />
 </android.support.constraint.ConstraintLayout>

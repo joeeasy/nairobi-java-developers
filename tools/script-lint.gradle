@@ -2,8 +2,10 @@ android {
     lintOptions {
         lintConfig file("$project.rootDir/tools/rules-lint.xml")
         htmlOutput file("$project.buildDir/outputs/lint/lint.html")
-        warningsAsErrors true
+        warningsAsErrors false
         xmlReport false
         abortOnError false
+        disable 'TypographyFractions','TypographyQuotes'
+        disable 'Overdraw'
     }
 }
