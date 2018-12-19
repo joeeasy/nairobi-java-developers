@@ -77,4 +77,4 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 .DS_Store
-./app/app.iml
+app/app.iml
