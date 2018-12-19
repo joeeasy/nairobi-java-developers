@@ -39,16 +39,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Glide.with(mContext)
                 .asBitmap()
-                .load(mimages.get(position))
+                .load(mimages.get(holder.getAdapterPosition()))
                 .into(holder.image);
-        holder.name.setText(mimageNames.get(position));
+        holder.name.setText(mimageNames.get(holder.getAdapterPosition()));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = mimageNames.get(position);
+                String message = mimageNames.get(holder.getAdapterPosition());
                 Intent intent = new Intent(mContext, ViewProfile.class);
                 intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(mContext, intent, null);

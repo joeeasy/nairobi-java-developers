@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Converge Codelab</string>
-    <string name="my_text_view">Java developers in nairobi</string>
+    <string name="placeholder_username">Jehondab Okpukoro</string>
+    <string name="placeholder_role">Java developer</string>
+    <string name="placeholder_contentdescription">Github users profile</string>
 </resources>
