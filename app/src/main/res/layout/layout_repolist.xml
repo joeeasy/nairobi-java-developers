@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/repo_parent"
+    android:layout_width="match_parent"
+    android:layout_height="124dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/layout_bg">
+
+
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/changa"
+        android:text="@string/repo_name"
+        android:textColor="@color/textPrimary" />
+
+    <TextView
+        android:id="@+id/repo_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/repo_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/repo_description"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/changa"
+        android:text="@string/repo_tag"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@+id/textView14"
+        android:contentDescription="@string/placeholder_role"
+        app:srcCompat="@drawable/ic_star_black_24dp" />
+
+    <TextView
+        android:id="@+id/star"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="@string/no_of_followers"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="231dp"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="@string/placeholder_contentdescription"
+        app:srcCompat="@drawable/ic_visibility_black_24dp" />
+
+    <TextView
+        android:id="@+id/watchers"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="251dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/no_of_followers"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/textView14"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="277dp"
+        android:layout_marginBottom="3dp"
+        android:contentDescription="@string/followers_text"
+        app:srcCompat="@drawable/ic_call_split_black_24dp" />
+
+    <TextView
+        android:id="@+id/folks"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@+id/star"
+        android:text="@string/no_of_following"
+        android:textColor="@color/colorAccent" />
+
+</RelativeLayout>

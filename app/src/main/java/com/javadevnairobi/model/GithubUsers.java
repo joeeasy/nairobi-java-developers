@@ -11,17 +11,21 @@ public class GithubUsers {
     @SerializedName("login")
     private String login;
 
-    @SerializedName("bio")
-    private String bio;
 
     @SerializedName("avatar_url")
     private String imageUrl;
 
-    public GithubUsers(String name, String login, String bio, String imageUrl) {
+    @SerializedName("url")
+    private  String url;
+    @SerializedName("repos_url")
+    private String repoUrl;
+
+    public GithubUsers(String name, String login, String imageUrl, String url, String repoUrld) {
         this.name = name;
         this.login = login;
-        this.bio = bio;
         this.imageUrl = imageUrl;
+        this.url = url;
+        this.repoUrl = repoUrl;
     }
 
     public String getName() {
@@ -32,8 +36,12 @@ public class GithubUsers {
         return login;
     }
 
-    public String getBio() {
-        return bio;
+    public String getUrl() {
+        return url;
+    }
+
+    public String getRepoUrl() {
+        return repoUrl;
     }
 
     public String getImageUrl() {

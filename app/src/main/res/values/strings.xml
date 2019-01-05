@@ -3,4 +3,19 @@
     <string name="placeholder_username">Jehondab Okpukoro</string>
     <string name="placeholder_role">Java developer</string>
     <string name="placeholder_contentdescription">Github users profile</string>
+    <string name="view_profile_button">Profile</string>
+    <string name="username">"@joeeasy"</string>
+    <string name="title">"\"Dev at @andela"\"</string>
+    <string name="no_of_followers">0</string>
+    <string name="followers_text">Followers</string>
+    <string name="no_of_starred_repo">0</string>
+    <string name="starred">Repos</string>
+    <string name="no_of_following">0</string>
+    <string name="following">Following</string>
+    <string name="view_repo">VIEW REPOSITORIES</string>
+    <string name="repository">Repositories</string>
+    <string name="repo_name">RMW-Frontend</string>
+    <string name="repo_description"> No description for this repo</string>
+    <string name="repo_tag">Java</string>
+    <string name="action_share">Share button</string>
 </resources>
