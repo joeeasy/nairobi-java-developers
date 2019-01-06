@@ -18,4 +18,6 @@
     <string name="repo_description"> No description for this repo</string>
     <string name="repo_tag">Java</string>
     <string name="action_share">Share button</string>
+    <dimen name="mtrl_card_spacing">8dp</dimen>
+
 </resources>

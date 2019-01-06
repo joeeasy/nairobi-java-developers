@@ -1,7 +1,11 @@
 package com.javadevnairobi.view;
 
+import android.app.ProgressDialog;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,12 +29,34 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
     private  ArrayList<String> imageUrls = new ArrayList<>();
     private ArrayList<String> url = new ArrayList<>();
     private ArrayList<String> repoUrl = new ArrayList<>();
+    private SwipeRefreshLayout swipeRefreshLayout;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        GithubUserPresenter githubUserPresenter = new GithubUserPresenter(this);
+        final GithubUserPresenter githubUserPresenter = new GithubUserPresenter(this);
         githubUserPresenter.getUsers();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Fetching users...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        swipeRefreshLayout = findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                githubUserPresenter.getUsers();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 4000);
+            }
+        });
+
 
     }
     @Override
@@ -42,13 +68,16 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
             repoUrl.add(githubUser.getRepoUrl());
         }
         initRecyclerView();
+        progressDialog.dismiss();
     }
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setHasFixedSize(true);
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(usernames, imageUrls, this);
         recyclerView.setAdapter(recyclerViewAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }
 
