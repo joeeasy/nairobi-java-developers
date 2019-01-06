@@ -1,8 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
 apply from: "$project.rootDir/tools/findbugs.gradle"
 apply from: "$project.rootDir/tools/checkstyle.gradle"
 apply from: "$project.rootDir/tools/pmd.gradle"
 apply from: "$project.rootDir/tools/script-lint.gradle"
+apply from: "$project.rootDir/tools/jacoco-test-cov.gradle"
+
+
+android.testOptions {
+    unitTests.all {
+        jacoco {
+            includeNoLocationClasses = false
+        }
+    }
+}
 android {
     compileSdkVersion 28
     defaultConfig {
