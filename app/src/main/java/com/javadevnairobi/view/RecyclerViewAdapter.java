@@ -2,6 +2,7 @@ package com.javadevnairobi.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -68,12 +69,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         ImageView image;
         TextView name;
-        RelativeLayout parentLayout;
+        CardView parentLayout;
         public ViewHolder(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.profile_image);
+            image = itemView.findViewById(R.id.card_profile_image);
             name = itemView.findViewById(R.id.name);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            parentLayout = itemView.findViewById(R.id.profile_card);
         }
     }
 }

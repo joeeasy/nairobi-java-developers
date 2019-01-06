@@ -1,6 +1,7 @@
 package com.javadevnairobi.view;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -51,6 +52,7 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
     private ArrayList<Integer> star = new ArrayList<>();
     private ArrayList<Integer> watchers = new ArrayList<>();
     private ArrayList<Integer> folks = new ArrayList<>();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,10 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
         Intent intent = getIntent();
         String username = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         linkToRepo = username;
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading user information...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         GithubUserProfilePresenter githubUserProfilePresenter = new GithubUserProfilePresenter(this);
         GithubRepoPresenter githubRepoPresenter = new GithubRepoPresenter(this);
         githubUserProfilePresenter.getUserProfile(username);
@@ -115,6 +121,7 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
             }
         }
         initRecyclerView();
+        progressDialog.dismiss();
 
     }
     @Override
