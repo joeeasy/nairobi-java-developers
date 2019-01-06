@@ -118,53 +118,23 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
 
     }
     @Override
-
-
     public boolean onCreateOptionsMenu(Menu menu) {
 
-
         getMenuInflater().inflate(R.menu.share_button, menu);
-
-
         return super.onCreateOptionsMenu(menu);
-
-
     }
 
-
     @Override
-
-
     public boolean onOptionsItemSelected(MenuItem item){
-
-
         switch (item.getItemId()) {
-
             case R.id.action_share:
-
-                Intent i = new Intent(
-
-                        android.content.Intent.ACTION_SEND);
-
+                Intent i = new Intent(android.content.Intent.ACTION_SEND);
                 i.setType("text/plain");
-
-                i.putExtra(
-
-                        android.content.Intent.EXTRA_TEXT, "Hey checkout the profile of this awesome developer " + "https://github.com/"+linkToRepo );
-
-                startActivity(Intent.createChooser(
-
-                        i,
-
-                        "Share Via"));
-
+                i.putExtra(android.content.Intent.EXTRA_TEXT, "Hey checkout the profile of this awesome developer " + "https://github.com/"+linkToRepo );
+                startActivity(Intent.createChooser(i,"Share Via"));
                 break;
-
         }
-
-
         Toast.makeText(getApplicationContext(), "You click on menu share", Toast.LENGTH_SHORT).show();
-
         return super.onOptionsItemSelected(item);
 
     }
