@@ -20,9 +20,12 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
+    public static final String EXTRA_MESSAGE2 = "com.javadevnairobi.MESSAGE2";
     private static final String TAG = "RecyclerViewAdapter";
     private  ArrayList<String> mimageNames = new ArrayList<>();
     private  ArrayList<String> mimages = new ArrayList<>();
+    private  ArrayList<String> url = new ArrayList<>();
+    private  ArrayList<String> repoUrl = new ArrayList<>();
     private Context mContext;
 
     public RecyclerViewAdapter(ArrayList<String> mimageNames, ArrayList<String> mimages, Context mContext) {
@@ -48,9 +51,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = mimageNames.get(holder.getAdapterPosition());
-                Intent intent = new Intent(mContext, ViewProfile.class);
-                intent.putExtra(EXTRA_MESSAGE, message);
+                String username = mimageNames.get(holder.getAdapterPosition());
+                Intent intent = new Intent(mContext, DetailView.class);
+                intent.putExtra(EXTRA_MESSAGE, username);
                 startActivity(mContext, intent, null);
             }
         });

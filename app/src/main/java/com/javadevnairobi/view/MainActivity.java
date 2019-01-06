@@ -16,11 +16,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements GithubUserView {
 
     public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
+    public static final String EXTRA_MESSAGE2 = "com.javadevnairobi.MESSAGE";
+
     private static final String TAG = "MainActivity";
 
 //    variables
     private ArrayList<String> usernames = new ArrayList<>();
     private  ArrayList<String> imageUrls = new ArrayList<>();
+    private ArrayList<String> url = new ArrayList<>();
+    private ArrayList<String> repoUrl = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
         for (GithubUsers githubUser: githubUsers) {
             imageUrls.add(githubUser.getImageUrl());
             usernames.add(githubUser.getLogin());
+            url.add(githubUser.getUrl());
+            repoUrl.add(githubUser.getRepoUrl());
         }
         initRecyclerView();
     }
