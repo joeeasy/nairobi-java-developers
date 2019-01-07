@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
         for (GithubUsers githubUser: githubUsers) {
             imageUrls.add(githubUser.getImageUrl());
             usernames.add(githubUser.getLogin());
-            url.add(githubUser.getUrl());
-            repoUrl.add(githubUser.getRepoUrl());
         }
         initRecyclerView();
         progressDialog.dismiss();
