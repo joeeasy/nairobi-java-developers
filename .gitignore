@@ -13,7 +13,7 @@
 *.apk
 *.ap_
 *.aab
-
+!test-butler-app-2.0.0.apk
 # Files for the ART/Dalvik VM
 *.dex
 
