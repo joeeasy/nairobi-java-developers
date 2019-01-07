@@ -25,7 +25,7 @@ public class DetailActivityTest {
     public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
 
     @Rule
-    public ActivityTestRule<DetailView> detailViewActivityTestRule = new ActivityTestRule<>(DetailView.class);
+    public ActivityTestRule<DetailView> detailViewActivityTestRule = new ActivityTestRule<>(DetailView.class, false, false);
 
     @Before
     public void launchDetailActivity() {
@@ -33,7 +33,7 @@ public class DetailActivityTest {
         intent.putExtra(EXTRA_MESSAGE, "kioko");
         detailViewActivityTestRule.launchActivity(intent);
 
-        sleep(1000);
+        sleep(8000);
     }
 
     @Test
