@@ -2,6 +2,7 @@ package com.javadevnairobi.view;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +10,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.javadevnairobi.R;
 import com.javadevnairobi.model.GithubUsers;
 import com.javadevnairobi.presenter.GithubUserPresenter;
+import com.javadevnairobi.utils.NetworkUtility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +38,19 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NetworkUtility networkUtility = new NetworkUtility();
+
+        if (networkUtility.isConnected(this)) {
+            fetchUsers();
+        } else {
+            showConnectionError();
+        }
+
+
+    }
+    public void fetchUsers() {
         final GithubUserPresenter githubUserPresenter = new GithubUserPresenter(this);
         githubUserPresenter.getUsers();
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Fetching users...");
         progressDialog.setCancelable(false);
@@ -53,11 +66,23 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
                     public void run() {
                         swipeRefreshLayout.setRefreshing(false);
                     }
-                }, 4000);
+                }, 10000);
             }
         });
+    }
+    public void showConnectionError() {
 
+        Snackbar networkErrMessage = Snackbar.make(findViewById(R.id.main_activity), R.string.network_error, Snackbar.LENGTH_LONG);
+        networkErrMessage.setAction(R.string.refreshText, new Refresh());
+        networkErrMessage.show();
 
+    }
+    public class Refresh implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            fetchUsers();
+        }
     }
     @Override
     public void githubUserReady(List<GithubUsers> githubUsers) {

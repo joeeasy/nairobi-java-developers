@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
  import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ import com.javadevnairobi.model.GithubUserRepo;
 import com.javadevnairobi.model.GithubUsers;
 import com.javadevnairobi.presenter.GithubRepoPresenter;
 import com.javadevnairobi.presenter.GithubUserProfilePresenter;
+import com.javadevnairobi.utils.NetworkUtility;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -62,6 +65,32 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
         Intent intent = getIntent();
         String username = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         linkToRepo = username;
+        NetworkUtility networkUtility = new NetworkUtility();
+        if (networkUtility.isConnected(this)) {
+            githbUserProfile(username);
+        }
+        else {
+            showConnectionError();;
+        }
+
+
+    }
+    public void showConnectionError() {
+
+            Snackbar networkErrMessage = Snackbar.make(findViewById(R.id.detailView), R.string.network_error, Snackbar.LENGTH_LONG);
+            networkErrMessage.setAction(R.string.refreshText, new Refresh());
+            networkErrMessage.show();
+
+    }
+    public class Refresh implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            githbUserProfile(linkToRepo);
+        }
+    }
+
+    public  void githbUserProfile(String username) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading user information...");
         progressDialog.setCancelable(false);
@@ -70,8 +99,6 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
         GithubRepoPresenter githubRepoPresenter = new GithubRepoPresenter(this);
         githubUserProfilePresenter.getUserProfile(username);
         githubRepoPresenter.getUserRepos(username);
-
-
     }
     @SuppressLint("CheckResult")
     @Override
@@ -141,7 +168,6 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
                 startActivity(Intent.createChooser(i,"Share Via"));
                 break;
         }
-        Toast.makeText(getApplicationContext(), "You click on menu share", Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
 
     }

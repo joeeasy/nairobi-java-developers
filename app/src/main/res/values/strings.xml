@@ -19,5 +19,7 @@
     <string name="repo_tag">Java</string>
     <string name="action_share">Share button</string>
     <dimen name="mtrl_card_spacing">8dp</dimen>
+    <string name="network_error">Unable to connect to the internet</string>
+    <string name="refreshText">Refresh</string>
 
 </resources>
