@@ -1,5 +1,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/ccad1c4bda1669517110/maintainability)](https://codeclimate.com/github/joeeasy/nairobi-java-developers/maintainability)
-[![CircleCI](https://circleci.com/gh/joeeasy/nairobi-java-developers.svg?style=svg)](https://circleci.com/gh/joeeasy/nairobi-java-developers)
 [![Build Status](https://travis-ci.org/joeeasy/nairobi-java-developers.svg?branch=develop)](https://travis-ci.org/joeeasy/nairobi-java-developers)
 [![codecov](https://codecov.io/gh/joeeasy/nairobi-java-developers/branch/develop/graph/badge.svg)](https://codecov.io/gh/joeeasy/nairobi-java-developers)
 
@@ -9,8 +8,8 @@
 This application implements the [Github API](http://developer.github.com/) for fetching and displaying *Java* developers in nairobi
 
 ## Screenshots
-<img src="./wireframes/Screenshot_1546774083.png"  height="400"/>
-<img src="./wireframes/Screenshot_1546709569.png"  height="400"/>
+<img src="./wireframes/list of developers dark.png"  height="400"/>
+<img src="./wireframes/user detail.png"  height="400"/>
 <img src="./wireframes/Screenshot_1546900581.png"  height="400"/>
 
 ## Wireframe Tool - Figma

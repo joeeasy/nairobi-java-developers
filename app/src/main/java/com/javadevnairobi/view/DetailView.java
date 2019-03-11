@@ -3,49 +3,28 @@ package com.javadevnairobi.view;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Environment;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.FileProvider;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.ShareActionProvider;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
  import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.javadevnairobi.R;
+import com.javadevnairobi.adapter.RepoViewAdapter;
 import com.javadevnairobi.model.GithubUserProfile;
 import com.javadevnairobi.model.GithubUserRepo;
-import com.javadevnairobi.model.GithubUsers;
 import com.javadevnairobi.presenter.GithubRepoPresenter;
 import com.javadevnairobi.presenter.GithubUserProfilePresenter;
 import com.javadevnairobi.utils.NetworkUtility;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.support.v4.view.MenuItemCompat.*;
 
 public class DetailView extends AppCompatActivity implements GithubUserProfileView, GithubRepoView {
     private static final String TAG = "dd";
@@ -164,7 +143,7 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
             case R.id.action_share:
                 Intent i = new Intent(android.content.Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(android.content.Intent.EXTRA_TEXT, "Hey checkout the profile of this awesome developer " + "https://github.com/"+linkToRepo );
+                i.putExtra(android.content.Intent.EXTRA_TEXT, "Check out this awesome developer @<github username>" + "https://github.com/"+linkToRepo );
                 startActivity(Intent.createChooser(i,"Share Via"));
                 break;
         }
