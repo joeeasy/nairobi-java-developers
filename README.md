@@ -52,10 +52,15 @@ Open project in android studio and run
 ./gradlew build
 ```
 
-## Running the tests
+## Running the project
 
+The project runs on two modes 
+debug - uses real implementation of services and components, using real data and resources
+release - for a version that contains fake implementations of dependencies that are hard to test
+
+## Running test
 Running the test is extremely easy, Jacoco has been setup on the project for running both unit and instrumental test
-All you need is run
+All you need is change ther build variant to debug and run
 ```
 ./gradlew jacocTestReport
 ```
