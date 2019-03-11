@@ -13,6 +13,15 @@ This application implements the [Github API](http://developer.github.com/) for f
 <img src="./wireframes/Screenshot_1546709569.png"  height="400"/>
 <img src="./wireframes/Screenshot_1546900581.png"  height="400"/>
 
+##Wireframe Tool - Figma
+The reason for choosing figma, is that fact that i comes with tons of benefits like:
+<ul>
+<li>It is web-based, so no download is required.</li>
+<li>It saves your work in the cloud which makes it easy to access your work from any device.</li>
+<li>It allows for real-time collaboration, which means that there's no need for continuous syncs, uploads, arrangement of work.</li>
+<li>Best of all it is free.</li>
+</ul>
+
 ## Getting Started
 
 To get started with the application, you need to following the steps below
