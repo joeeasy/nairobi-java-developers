@@ -143,7 +143,7 @@ public class DetailView extends AppCompatActivity implements GithubUserProfileVi
             case R.id.action_share:
                 Intent i = new Intent(android.content.Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(android.content.Intent.EXTRA_TEXT, "Hey checkout the profile of this awesome developer " + "https://github.com/"+linkToRepo );
+                i.putExtra(android.content.Intent.EXTRA_TEXT, "Check out this awesome developer @<github username>" + "https://github.com/"+linkToRepo );
                 startActivity(Intent.createChooser(i,"Share Via"));
                 break;
         }
