@@ -2,6 +2,7 @@ package com.javadevnairobi.view;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements GithubUserView {
 
     public static final String EXTRA_MESSAGE = "com.javadevnairobi.MESSAGE";
-    public static final String EXTRA_MESSAGE2 = "com.javadevnairobi.MESSAGE";
+    public static final String USERS_KEY = "MESSAGE";
 
     private static final String TAG = "MainActivity";
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
     private ArrayList<String> repoUrl = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
     ProgressDialog progressDialog;
+    List<GithubUsers> githubUsers;
+    Parcelable parcelable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,12 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
         NetworkUtility networkUtility = new NetworkUtility();
 
         if (networkUtility.isConnected(this)) {
-            fetchUsers();
+            if(savedInstanceState != null) {
+                this.githubUsers = savedInstanceState.getParcelableArrayList(USERS_KEY);
+                this.githubUserReady(githubUsers);
+            } else  {
+                fetchUsers();
+            }
         } else {
             showConnectionError();
         }
