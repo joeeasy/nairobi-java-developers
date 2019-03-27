@@ -53,9 +53,10 @@ Open project in android studio and run
 
 ## Running the project
 
-The project runs on two modes 
-debug - uses real implementation of services and components, using real data and resources
-release - for a version that contains fake implementations of dependencies that are hard to test
+The project runs on two modes.
+
+Debug - Is for the testing the app and it's features which improves development speed like full logging and debugging enabled DevelopmentRelease
+Release - By default, the release configuration will optimize the code to run faster, moreover you cannot attach a debugger to it.
 
 ## Running test
 Running the test is extremely easy, Jacoco has been setup on the project for running both unit and instrumental test
